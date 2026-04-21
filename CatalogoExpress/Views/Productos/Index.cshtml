@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="catalog-hero">
+    <h1 class="catalog-title">Catálogo Express</h1>
+    <p class="catalog-subtitle">Seleccioná un producto para ver el detalle.</p>
+</section>
+
+<section class="product-grid">
+    @foreach(Producto item in ViewBag.Productos){
+    <ul>
+    <li>@item.ObtenerNombre()</li>
+    <li>@item.ObtenerPrecio()</li>
+    </ul>
+   <a href= @Url.Action("Detalle","Productos", new { nombre = item.ObtenerNombre() })> ver detalles de este producto  </a>
+    }
+      
+    
+</section>
+
